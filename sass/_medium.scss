@@ -1,0 +1,59 @@
+/*-----HEADER -----*/
+header {
+    div#header-container {
+        div#container-search-header {
+        display:block!important;
+        float: right;
+        margin-top: 20px;
+        height: 30px;
+        input {height: 90%;}       
+        }
+    }   //en fo header-container
+}   //end of header
+
+/*----- NAV -----*/
+nav {
+    background-color: $primaryColor;
+	//undo small screen
+	button {display: none;}
+    ul.closed{max-height: 25rem;}
+	ul {
+	margin-left: 2%;
+	}
+	ul li {
+	   float: left;
+        border-right: 1px solid rgba(0,0,0,0.3);
+	}
+	ul li a{
+        color: $secondaryColor;
+        text-align: center;
+        padding: .5rem .8rem; 
+        transition: background 0.80s ease; 
+	}
+    ul li:last-child{border: none;}
+	ul li a:hover {
+        background: darken($secondaryColor,10%);
+        color: $primaryColor;
+    }
+    ul li.active a {background-color: darken($primaryColor,10%);}
+    ul li.active a:hover {
+        color: $secondaryColor;
+    }
+
+    div#container-search {
+        display: none;
+    }
+}   // end of nav
+
+/*  ------------- MAIN -------------  */
+main {    
+    // COLUMN SECTION
+    @for $i from 1 through 12 { //for loop repeat 12 times
+        $w: ($i / 12) * 100%; //first statement
+        .medium-#{$i} {width: $w; float: left;} //assign the number of columns with a width value
+    }
+    
+     div#button {margin-left: 0;}
+}   // end main
+
+

@@ -1,0 +1,40 @@
+/*  ------------- HEADER -------------  */
+header {
+    
+
+} //end header
+
+/*  ------------- NAV -------------  */
+nav {
+    ul {
+        max-width: 75rem;
+        margin: 0 auto;
+    }
+    ul li {
+        width: auto;   
+    }
+	ul li:last-child {border-right: 1px solid rgba(0,0,0,0.3);}
+	ul li a {
+		padding: .5rem 1rem;
+        
+	} // and a
+} // end nav
+
+
+/*  ------------- MAIN -------------  */
+main {
+    div#cards {
+       margin-left: 17%+$gutterdbl; //100% -66% = 34%/2 = 17% equal width
+    }
+     // COLUMN SECTION  
+    @for $i from 1 through 12 { //for loop repeat 12 times
+        $w: ($i / 12) * 100%; //first statement
+        .large-#{$i} {width: $w; float: left;} //assign the number of columns with a width value
+    }
+    
+    div#button{
+       margin-left: 8.33%+$gutterdbl;// 100%/12+$gutterdbl
+    }
+    
+    
+} // end main

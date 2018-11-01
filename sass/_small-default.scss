@@ -1,0 +1,255 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+
+/*  apply a natural box layout model to all elements  */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* ------------- BODY ------------- */
+body { 
+	font-family: $defaultFont;
+	font-size: 12px;
+	font-weight: $normalWeight;
+    h1 {
+		font-size: 1.8rem;
+		font-weight: $boldWeight;
+	} //end h1 
+    
+	h2 {
+		font-size: 1rem;
+        font-weight: $boldWeight; 
+	} //end h2
+
+}   //end body
+
+
+/*  ------------- HEADER -------------  */
+header {
+    border-top: 3px $primaryColor solid;
+    width: 100%;
+	background-color: $secondaryColor;
+    padding-top: 0.6rem;
+    
+    div#header-container {
+        max-width: 75rem;
+        margin: 0 auto;
+        padding: 0 $gutter;
+        div#container-search-header{display: none;}
+        h1 {
+        color: white;
+        }
+        h2 {
+            color: white;
+            margin: 0.3rem 0;
+            font-size: 1.2rem;    
+        }   
+    } //end of header-container
+} //end of header
+
+/*  ------------- NAV -------------  */
+nav {
+    max-width: 75rem;
+    margin: 0 auto;
+    background-color: $primaryColor;
+    ul {
+        overflow: hidden;
+        -webkit-transition: max-height 1s;
+        -moz-transition: max-height 1s;
+        transition: max-height 1s;
+    }
+    ul li a {
+        display: block;
+        color: black;
+        text-decoration: none;
+        width: 100%;
+        padding: .7rem 2%;
+        border-bottom: solid 1px rgba(0,0,0,0.3);
+    }
+    ul li a:hover {
+        color:white;
+        background-color: $secondaryColor;
+    }
+    
+    ul li.active a {background-color: darken($primaryColor,10%);}
+    ul.closed {
+        max-height: 0;
+    }
+    ul.open {
+        max-height: 25rem; 
+    }
+    
+    button {
+        font-size: 1.5rem;
+        color: black;
+        background-color: rgba(0,0,0,0.2);
+        border: solid 1px rgba(0,0,0,0.3);
+        width: 3.5rem;
+        margin: 3px 2%;
+    }
+    div#container-search {
+        float: right;
+        margin-top: 2px;
+        margin-right: $gutter; 
+        height: 40px;
+        input {height: 90%; }
+    }   //end of search
+}   //end nav
+
+/*  ------------- MAIN -------------  */
+main { 
+	max-width: 75rem;
+    margin: auto;
+    
+/* -- columns --*/
+    .row {
+        clear: both;
+    }   //end of row
+    .column {
+        padding: 0 $gutter;
+    }   //end of column
+    @for $i from 1 through 12 { //for loop repeat 12 times
+        $w: ($i / 12) * 100%; //first statement
+        .small-#{$i} {width: $w; float: left;} //assign the number of columns with a width value
+    }   //end of loop
+    
+/* -- lawyer cards --*/
+    div#cards {
+    .lawyer-cards figure {
+        width: 100%;
+        height: 230px;
+        margin: 1rem 0;;
+        border: solid 1px rgba(0,0,0,0.3);
+        a { text-decoration: none;}
+         h2 {
+            text-align: center;
+            margin: 1rem;
+            color: $secondaryColor;
+            font-size: 0.7rem;
+        }
+    }
+    .lawyer-cards figure img {
+        width: 100%;
+        height: 150px; 
+    }
+    
+    .lawyer-cards figure figcaption {
+        width: 100%;
+        text-align: center;
+        margin: 0.2rem 0;
+        border-radius: 20px;
+        padding: 0.4rem 0;
+        background-color: $primaryColor;
+        color: $secondaryColor;
+        
+        }
+    }   //end of cards
+    
+    /* -- button --*/
+    div#button{
+        margin-left: 8.33%+$gutterdbl;  // 100%/12+$gutterdbl
+        .buttons {
+            margin-bottom: 1rem;
+            text-align: center;  
+            a {        
+                font-size:1.2rem;
+                text-decoration: none;
+                h2 {
+                    background-color: $primaryColor;
+                    padding: 2rem 0;
+                    margin: 1rem ;
+                    color:$secondaryColor;
+                }    
+            }
+
+        }   //end of buttons      
+    }   //end of div button
+    
+    /* -- blog --*/
+    div#blog {
+        .blogs {
+            figure {
+                width: 100%;
+                height: auto; 
+                img {
+                    width: 100%;
+                    height:150px;  
+                }
+                figcaption {
+                    h2 {
+                        font-size:1.2rem;
+                        margin: 0.5rem 0;
+                        color: $secondaryColor;
+                    }
+                    a {
+                        text-decoration: none;
+                        text-align: center;
+                        color: white; 
+                        h3 {
+                            padding: 1rem 0;
+                            margin: 0.5rem 0;
+                            background-color: $secondaryColor;
+                        }
+                    }
+                }   //end figcaption
+            }   //end figure    
+        }   //end of blogs    
+    }   //end of blog
+    
+
+    /* -- tip --*/
+    div#tip {
+        margin-bottom: 0.5rem;
+        .tips {
+            margin: 1rem 0;
+            article {background-color: $primaryColor;}
+            h2 {
+                color: $secondaryColor;
+                padding-bottom: 0.5rem;;
+            }
+            h3 {
+                padding: 0.5rem 0;
+                text-align: center;
+                
+            }
+        }    
+    }
+    
+} // end main   
+/*  ------------- FOOTER -------------  */
+footer {
+	width: 100%;
+    
+    /* -- social-icon --*/
+    div#social-icon {
+        .icons {
+            display: -ms-flex;
+            display: flex;
+            justify-content: center;
+            li  {
+                list-style-type: none;
+                a {
+                    color: $secondaryColor;
+                    font-size: 4rem;
+                    margin-left: 0.5rem;
+                }
+                a:hover {color:darken($primaryColor,10%);}
+            }   
+        }   //end icons      
+    }   //end social icon
+
+	p {
+		text-align: center;
+		color: $secondaryColor;
+		padding: .75rem 0;
+		font-size: .9rem;
+        font-weight: $boldWeight;
+	} // end p
+    
+	
+} // end footer
+
+/*----- stop collapse -----*/
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
